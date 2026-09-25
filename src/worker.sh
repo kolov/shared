@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Extend the worker module (round 7)
+# Refactor the worker module (round 17)
 set -euo pipefail
 
 worker_configure() {
@@ -9,6 +9,6 @@ worker_configure() {
 
 worker_execute() {
   worker_configure "${1:-standard}"
-  echo "[worker] executing round 7"
+  echo "[worker] executing round 17"
 }
-# round 7 follow-up
+# round 17 follow-up
