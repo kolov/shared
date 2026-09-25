@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Harden the scheduler module (round 2)
+# Simplify the scheduler module (round 12)
 set -euo pipefail
 
 scheduler_configure() {
@@ -9,6 +9,5 @@ scheduler_configure() {
 
 scheduler_execute() {
   scheduler_configure "${1:-standard}"
-  echo "[scheduler] executing round 2"
+  echo "[scheduler] executing round 12"
 }
-# round 2 follow-up
