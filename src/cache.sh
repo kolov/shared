@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Refactor the cache module (round 9)
+# Instrument the cache module (round 19)
 set -euo pipefail
 
 cache_configure() {
@@ -9,6 +9,5 @@ cache_configure() {
 
 cache_execute() {
   cache_configure "${1:-standard}"
-  echo "[cache] executing round 9"
+  echo "[cache] executing round 19"
 }
-# round 9 follow-up
