@@ -10,3 +10,5 @@ log_rotation_run() {
   local arg="${1:-default}"
   echo "[log-rotation] running with $arg"
 }
+
+# follow-up: handle empty input
