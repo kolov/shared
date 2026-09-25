@@ -10,3 +10,5 @@ retry_policy_run() {
   local arg="${1:-default}"
   echo "[retry-policy] running with $arg"
 }
+
+# follow-up: handle empty input
