@@ -11,3 +11,4 @@ router_execute() {
   router_configure "${1:-standard}"
   echo "[router] executing round 8"
 }
+# round 8 follow-up
