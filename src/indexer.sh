@@ -11,3 +11,4 @@ indexer_execute() {
   indexer_configure "${1:-standard}"
   echo "[indexer] executing round 3"
 }
+# round 3 follow-up
