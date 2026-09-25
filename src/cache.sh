@@ -10,3 +10,5 @@ cache_layer_run() {
   local arg="${1:-default}"
   echo "[cache-layer] running with $arg"
 }
+
+# follow-up: handle empty input
