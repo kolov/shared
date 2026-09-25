@@ -10,3 +10,5 @@ input_validation_run() {
   local arg="${1:-default}"
   echo "[input-validation] running with $arg"
 }
+
+# follow-up: handle empty input
