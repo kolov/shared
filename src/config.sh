@@ -10,3 +10,5 @@ config_loader_run() {
   local arg="${1:-default}"
   echo "[config-loader] running with $arg"
 }
+
+# follow-up: handle empty input
