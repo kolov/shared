@@ -7,8 +7,6 @@ on:
         description: "Run label"
         required: false
         default: "manual"
-  schedule:
-    - cron: "17 2 * * *"
 
 jobs:
   smoke:
@@ -19,10 +17,7 @@ jobs:
         shard: [1, 2, 3, 4]
     steps:
       - uses: actions/checkout@v4
-      - name: Smoke shard ${{ matrix.shard }}
-        run: |
-          echo "shard ${{ matrix.shard }} label=${{ github.event.inputs.label }}"
-          bash scripts/run-tests.sh
+      - run: bash scripts/run-tests.sh
 
   report:
     needs: smoke
