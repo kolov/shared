@@ -16,3 +16,4 @@
 - round 16: Tidy the buffer at 20260925-092913Z
 - round 17: Refactor the worker at 20260925-093023Z
 - round 18: Harden the router at 20260925-093123Z
+- round 19: Instrument the cache at 20260925-093228Z
