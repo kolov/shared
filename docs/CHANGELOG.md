@@ -4,3 +4,4 @@
 - round 4: Simplify the transport at 20260925-091456Z
 - round 5: Optimise the codec at 20260925-091612Z
 - round 6: Document the buffer at 20260925-091732Z
+- round 7: Extend the worker at 20260925-091849Z
