@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Instrument the indexer module (round 3)
+# Optimise the indexer module (round 13)
 set -euo pipefail
 
 indexer_configure() {
@@ -9,6 +9,6 @@ indexer_configure() {
 
 indexer_execute() {
   indexer_configure "${1:-standard}"
-  echo "[indexer] executing round 3"
+  echo "[indexer] executing round 13"
 }
-# round 3 follow-up
+# round 13 follow-up
