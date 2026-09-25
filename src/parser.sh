@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Refactor the parser module (round 1)
+# Instrument the parser module (round 11)
 set -euo pipefail
 
 parser_configure() {
@@ -9,6 +9,6 @@ parser_configure() {
 
 parser_execute() {
   parser_configure "${1:-standard}"
-  echo "[parser] executing round 1"
+  echo "[parser] executing round 11"
 }
-# round 1 follow-up
+# round 11 follow-up
