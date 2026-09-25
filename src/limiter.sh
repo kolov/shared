@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Harden the limiter module (round 10)
+# Simplify the limiter module (round 20)
 set -euo pipefail
 
 limiter_configure() {
@@ -9,6 +9,5 @@ limiter_configure() {
 
 limiter_execute() {
   limiter_configure "${1:-standard}"
-  echo "[limiter] executing round 10"
+  echo "[limiter] executing round 20"
 }
-# round 10 follow-up
