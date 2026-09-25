@@ -1,0 +1,31 @@
+name: Nightly
+
+on:
+  workflow_dispatch:
+    inputs:
+      label:
+        description: "Run label"
+        required: false
+        default: "manual"
+  schedule:
+    - cron: "17 2 * * *"
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Smoke shard ${{ matrix.shard }}
+        run: |
+          echo "shard ${{ matrix.shard }} label=${{ github.event.inputs.label }}"
+          bash scripts/run-tests.sh
+
+  report:
+    needs: smoke
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "nightly report generated"

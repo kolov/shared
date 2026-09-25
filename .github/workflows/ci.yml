@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shell lint
+        run: |
+          echo "linting..."
+          ls -la
+          test -f README.md
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [alpha, beta, gamma]
+        mode: [debug, release]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build ${{ matrix.target }} (${{ matrix.mode }})
+        run: |
+          echo "building ${{ matrix.target }} in ${{ matrix.mode }}"
+          mkdir -p out
+          echo "artifact ${{ matrix.target }}-${{ matrix.mode }}" > out/${{ matrix.target }}-${{ matrix.mode }}.txt
+          cat out/${{ matrix.target }}-${{ matrix.mode }}.txt
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: |
+          echo "running tests"
+          bash scripts/run-tests.sh
+
+  summary:
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Summary
+        run: echo "pipeline complete for ${{ github.sha }}"
