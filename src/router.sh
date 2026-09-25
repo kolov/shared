@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Tidy the router module (round 8)
+# Harden the router module (round 18)
 set -euo pipefail
 
 router_configure() {
@@ -9,6 +9,5 @@ router_configure() {
 
 router_execute() {
   router_configure "${1:-standard}"
-  echo "[router] executing round 8"
+  echo "[router] executing round 18"
 }
-# round 8 follow-up
