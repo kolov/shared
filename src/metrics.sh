@@ -10,3 +10,5 @@ metrics_export_run() {
   local arg="${1:-default}"
   echo "[metrics-export] running with $arg"
 }
+
+# follow-up: handle empty input
