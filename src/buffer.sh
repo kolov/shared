@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Document the buffer module (round 6)
+# Tidy the buffer module (round 16)
 set -euo pipefail
 
 buffer_configure() {
@@ -9,6 +9,6 @@ buffer_configure() {
 
 buffer_execute() {
   buffer_configure "${1:-standard}"
-  echo "[buffer] executing round 6"
+  echo "[buffer] executing round 16"
 }
-# round 6 follow-up
+# round 16 follow-up
