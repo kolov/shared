@@ -2,3 +2,4 @@
 - round 2: Harden the scheduler at 20260925-091250Z
 - round 3: Instrument the indexer at 20260925-091351Z
 - round 4: Simplify the transport at 20260925-091456Z
+- round 5: Optimise the codec at 20260925-091612Z
