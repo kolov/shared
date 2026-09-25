@@ -9,3 +9,4 @@
 - round 9: Refactor the cache at 20260925-092111Z
 - round 10: Harden the limiter at 20260925-092222Z
 - round 11: Instrument the parser at 20260925-092329Z
+- round 12: Simplify the scheduler at 20260925-092430Z
