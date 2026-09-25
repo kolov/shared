@@ -1,1 +1,2 @@
 - round 1: Refactor the parser at 20260925-091149Z
+- round 2: Harden the scheduler at 20260925-091250Z
