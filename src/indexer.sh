@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
-# Optimise the indexer module (round 13)
+# Instrument the indexer module (round 3)
 set -euo pipefail
 
 indexer_configure() {
-  local mode="${1:-standard}"
-  echo "[indexer] configured: $mode"
+    echo "[indexer] configured: ${1:-standard}"
 }
-
-indexer_execute() {
-  indexer_configure "${1:-standard}"
-  echo "[indexer] executing round 13"
-}
-# round 13 follow-up
+# round 3 follow-up
