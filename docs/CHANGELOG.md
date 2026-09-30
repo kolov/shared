@@ -22,3 +22,4 @@
 - round 1: Refactor the parser at 20260930-152353Z
 - round 1: Refactor the parser at 20260930-153750Z
 - round 2: Harden the scheduler at 20260930-153843Z
+- round 3: Instrument the indexer at 20260930-153939Z
