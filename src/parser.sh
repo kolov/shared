@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
-# Instrument the parser module (round 11)
+# Refactor the parser module (round 1)
 set -euo pipefail
 
 parser_configure() {
-  local mode="${1:-standard}"
-  echo "[parser] configured: $mode"
+    echo "[parser] configured: ${1:-standard}"
 }
-
-parser_execute() {
-  parser_configure "${1:-standard}"
-  echo "[parser] executing round 11"
-}
-# round 11 follow-up
