@@ -1,0 +1,76 @@
+name: Metrics probe
+
+# Exercises every case the GitHub workflow metrics distinguish. Dispatched by
+# run-probe.sh with a scenario; each scenario changes one thing.
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: "success | fail | timeout | cancel | approval | burst"
+        required: true
+        default: success
+
+jobs:
+  quick:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sleep $((RANDOM % 10 + 1))
+      - name: Only on fail
+        if: inputs.scenario == 'fail'
+        run: echo "this step runs only when the scenario is fail"
+
+  flaky:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep $((RANDOM % 20 + 5))
+      - name: Fails in the fail scenario
+        run: test "${{ inputs.scenario }}" != fail
+      - name: Skipped after a failure
+        run: echo "never reached when the previous step fails"
+
+  matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
+    steps:
+      - run: sleep $((RANDOM % 30 + shard * 5))
+        env:
+          shard: ${{ matrix.shard }}
+
+  slow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Sleeps past the timeout in the timeout scenario, long enough to cancel in the cancel scenario
+        run: |
+          case "${{ inputs.scenario }}" in
+            timeout) sleep 120 ;;
+            cancel)  sleep 50 ;;
+            *)       sleep 15 ;;
+          esac
+
+  never:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "skipped by if"
+
+  gated:
+    if: inputs.scenario == 'approval'
+    runs-on: ubuntu-latest
+    environment: probe-approval
+    steps:
+      - run: echo "ran after approval"
+
+  # More parallel jobs than the account's concurrency limit, so some wait for a runner.
+  burst:
+    if: inputs.scenario == 'burst'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        n: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+    steps:
+      - run: sleep 60
